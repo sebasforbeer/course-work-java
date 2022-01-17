@@ -8,41 +8,37 @@ IAnimal {
 
     String getName();
 
-    public boolean hasTail();
+    boolean hasTail();
 
-    public boolean hasPaw();
-    public int countPaw();
+    boolean hasPaw();
 
-    public boolean hasSound();
-    public String getSound();
+    boolean isWoolly();
+    boolean isLongWool();
+    boolean isNeedleWool();
 
-    public boolean isWoolly();
-    public boolean isLongWool();
-    public boolean isNeedleWool();
+    boolean isNightAnimal();
+    boolean isDayAnimal();
 
-    public boolean isNightAnimal();
-    public boolean isDayAnimal();
+    boolean isPackAnimal(); //стадное
+    boolean isSolo();
 
-    public boolean isPackAnimal(); //стадное
-    public boolean isSolo();
+    boolean isWildAnimal();
+    boolean isPet();
 
-    public boolean isWildAnimal();
-    public boolean isPet();
+     boolean isAmenableToTraining();
 
-    public boolean isAmenableToTraining();
+     boolean isSharpClaws();
+     boolean isBluntClaws();
 
-    public boolean isSharpClaws();
-    public boolean isBluntClaws();
+     boolean isHerbivore();  //травоядное
+     boolean isMeatEating();
 
-    public boolean isHerbivore();  //травоядное
-    public boolean isMeatEating();
+     boolean isOviparous(); //яйцекладущий
+     boolean isMammals(); //млекопитаюшие
 
-    public boolean isOviparous(); //яйцекладущий
-    public boolean isMammals(); //млекопитаюшие
+     boolean isBigAnimal();
+     boolean isSmallAnimal();
 
-    public boolean isBigAnimal();
-    public boolean isSmallAnimal();
-
-    public Image getImage();
+     Image getImage();
 
 }

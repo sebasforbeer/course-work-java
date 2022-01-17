@@ -5,7 +5,7 @@ import javafx.scene.image.Image;
 public class Hippo extends Animal{
     @Override
     public Image getImage() {
-        return new Image("E:\\photoAnimals\\hippo.jpg");
+        return new Image("C:\\Users\\moon2\\IdeaProjects\\course_work\\src\\main\\resources\\com\\course_work\\animal_pictures\\hippo.jpg");
     }
     @Override
     public String getName() {
@@ -20,21 +20,6 @@ public class Hippo extends Animal{
     @Override
     public boolean hasPaw() {
         return true;
-    }
-
-    @Override
-    public int countPaw() {
-        return 4;
-    }
-
-    @Override
-    public boolean hasSound() {
-        return super.hasSound();
-    }
-
-    @Override
-    public String getSound() {
-        return super.getSound();
     }
 
     @Override

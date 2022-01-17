@@ -6,7 +6,7 @@ public class Kangaroo extends Animal{
 
     @Override
     public Image getImage() {
-        return new Image("E:\\photoAnimals\\kangaroo.jpg");
+        return new Image("C:\\Users\\moon2\\IdeaProjects\\course_work\\src\\main\\resources\\com\\course_work\\animal_pictures\\kangaroo.jpg");
     }
 
     @Override
@@ -22,27 +22,6 @@ public class Kangaroo extends Animal{
     @Override
     public boolean hasPaw() {
         return true;
-    }
-
-    @Override
-    public int countPaw() {
-        return 5;
-    }
-
-    @Override
-    public boolean hasSound() {
-        return true;
-    }
-
-    @Override
-    public String getSound() {
-        return """
-                 Кенгуру издают разнообразные звуки, включая шипение, хрюканье и кашель, а самки могут издавать щелканье при общении с детенышами.
-                 Кенгуру шумят, когда предупреждают других о хищниках или чувствуют опасность.\040
-                 Они также топают ногами, чтобы сообщить собратьям о потенциальной угрозе.
-                 Кенгуру очень общительны и ударяют друг друга ногами при встрече.\040
-                 Хотя со стороны такое поведение кажется жестоким, на самом деле это форма создания дружеских связей.
-                """;
     }
 
     @Override

@@ -6,7 +6,7 @@ public class Human extends Animal{
 
     @Override
     public Image getImage() {
-        return new Image("E:\\photoAnimals\\human.jpg");
+        return new Image("C:\\Users\\moon2\\IdeaProjects\\course_work\\src\\main\\resources\\com\\course_work\\animal_pictures\\human.jpg");
     }
 
     @Override
@@ -22,21 +22,6 @@ public class Human extends Animal{
     @Override
     public boolean hasPaw() {
         return super.hasPaw();
-    }
-
-    @Override
-    public int countPaw() {
-        return super.countPaw();
-    }
-
-    @Override
-    public boolean hasSound() {
-        return super.hasSound();
-    }
-
-    @Override
-    public String getSound() {
-        return super.getSound();
     }
 
     @Override

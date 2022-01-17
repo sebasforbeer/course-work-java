@@ -9,7 +9,7 @@ Dog
 
     @Override
     public Image getImage() {
-        return new Image("E:\\photoAnimals\\dog.jpg");
+        return new Image("C:\\Users\\moon2\\IdeaProjects\\course_work\\src\\main\\resources\\com\\course_work\\animal_pictures\\dog.jpg");
     }
 
     @Override
@@ -25,21 +25,6 @@ Dog
     @Override
     public boolean hasPaw() {
         return true;
-    }
-
-    @Override
-    public int countPaw() {
-        return 4;
-    }
-
-    @Override
-    public boolean hasSound() {
-        return true;
-    }
-
-    @Override
-    public String getSound() {
-        return "гав";
     }
 
     @Override

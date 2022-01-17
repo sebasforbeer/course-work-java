@@ -20,21 +20,6 @@ public class Animal implements IAnimal{
     }
 
     @Override
-    public int countPaw() {
-        return 0;
-    }
-
-    @Override
-    public boolean hasSound() {
-        return false;
-    }
-
-    @Override
-    public String getSound() {
-        return null;
-    }
-
-    @Override
     public boolean isWoolly() {
         return false;
     }

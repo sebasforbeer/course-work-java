@@ -2,6 +2,7 @@ package com.course_work.model.animals;
 
 import javafx.scene.image.Image;
 
+import java.io.File;
 import java.util.Locale;
 
 public class
@@ -10,7 +11,7 @@ Cat
 
     @Override
     public Image getImage() {
-        return new Image("E:\\photoAnimals\\cat.jpg");
+        return new Image("C:\\Users\\moon2\\IdeaProjects\\course_work\\src\\main\\resources\\com\\course_work\\animal_pictures\\cat.jpg");
     }
 
     @Override
@@ -26,21 +27,6 @@ Cat
     @Override
     public boolean hasPaw() {
         return true;
-    }
-
-    @Override
-    public int countPaw() {
-        return 4;
-    }
-
-    @Override
-    public boolean hasSound() {
-        return true;
-    }
-
-    @Override
-    public String getSound() {
-        return "мяу";
     }
 
     @Override

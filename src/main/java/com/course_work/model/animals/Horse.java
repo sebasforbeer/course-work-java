@@ -6,7 +6,7 @@ public class Horse extends Animal{
 
     @Override
     public Image getImage() {
-        return new Image("E:\\photoAnimals\\horse.jpg");
+        return new Image("C:\\Users\\moon2\\IdeaProjects\\course_work\\src\\main\\resources\\com\\course_work\\animal_pictures\\horse.jpg");
     }
 
     @Override
@@ -22,21 +22,6 @@ public class Horse extends Animal{
     @Override
     public boolean hasPaw() {
         return true;
-    }
-
-    @Override
-    public int countPaw() {
-        return 4;
-    }
-
-    @Override
-    public boolean hasSound() {
-        return true;
-    }
-
-    @Override
-    public String getSound() {
-        return "Игого";
     }
 
     @Override

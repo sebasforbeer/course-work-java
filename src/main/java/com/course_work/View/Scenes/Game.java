@@ -5,6 +5,7 @@ import com.course_work.model.CreateAnimal;
 import com.course_work.model.animals.Animal;
 import com.course_work.model.DifficultSettings;
 import com.course_work.model.GameHandler;
+import com.course_work.model.animals.Cat;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
