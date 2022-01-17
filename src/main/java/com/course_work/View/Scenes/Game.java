@@ -53,8 +53,9 @@ public class Game {
         AtomicInteger tryingAnimal = new AtomicInteger(1);
 
         //правая часть для интерфейса
-        VBox rightVBox = new RightVBox().getVbox(input);
-        rightVBox.setPadding(new Insets(0, 45, 0, 0));
+        RightVBox rightVBoxGetter = new RightVBox();
+        AtomicReference<VBox> rightVBox = new AtomicReference<>(rightVBoxGetter.getVbox(input, randomAnimal));
+        rightVBox.get().setPadding(new Insets(0, 45 ,0 , 0));
 
         //левая часть для интерфейса
         LeftVBox leftVBoxGetter = new LeftVBox();
@@ -68,7 +69,8 @@ public class Game {
         //тут идет обработка вводимого текста
         input.setOnAction(e -> {
             new GameHandler(input, randomAnimal, answerLabel, tryingLabel, tryingAnimalLabel,
-                    stage, previousScene, tryingAnimal, trying, difficultSettings, leftVBoxGetter, leftVBox, borderPaneBuilder);
+                    stage, previousScene, tryingAnimal,
+                    trying, difficultSettings, leftVBoxGetter, leftVBox, borderPaneBuilder, rightVBoxGetter, rightVBox);
             borderPane.set(borderPaneBuilder.getBorderPane());
         });
 
@@ -77,7 +79,8 @@ public class Game {
         Button okButton = new Button("ок");
         okButton.setOnAction(e -> {
             new GameHandler(input, randomAnimal, answerLabel, tryingLabel, tryingAnimalLabel,
-                    stage, previousScene, tryingAnimal, trying, difficultSettings, leftVBoxGetter, leftVBox, borderPaneBuilder);
+                    stage, previousScene, tryingAnimal,
+                    trying, difficultSettings, leftVBoxGetter, leftVBox, borderPaneBuilder, rightVBoxGetter, rightVBox);
             borderPane.set(borderPaneBuilder.getBorderPane());
         });
 
@@ -91,7 +94,7 @@ public class Game {
 
 
         //вся сцена
-        borderPaneBuilder.init(vBox, leftVBox.get(), rightVBox, menuObjects);
+        borderPaneBuilder.init(vBox, leftVBox.get(), rightVBox.get(), menuObjects);
         borderPane.set(borderPaneBuilder.getBorderPane());
 
         scene = new Scene(borderPane.get(),1280,720);

@@ -75,6 +75,14 @@ public class AnalysisInputText {
         this.tryingAnimal = tryingAnimal;
     }
 
+    public AnalysisInputText(Label label, String inputText, Animal randomAnimal) {
+        this.label = label;
+        this.inputText = inputText.toLowerCase(Locale.ROOT).strip();
+        this.randomAnimal = randomAnimal;
+        trying = null;
+        tryingAnimal = null;
+    }
+
     public int checkInputTextByAnimal(){
         if (inputText.contains(randomAnimal.getName())) {
 
@@ -214,5 +222,13 @@ public class AnalysisInputText {
     public int addTrying(int q) {
         trying.setText("Колво ответов : " + q);
         return q + 1;
+    }
+
+    public Label getLabel() {
+        return label;
+    }
+
+    public Animal getRandomAnimal() {
+        return randomAnimal;
     }
 }

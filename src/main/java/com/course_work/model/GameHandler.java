@@ -1,6 +1,7 @@
 package com.course_work.model;
 
 import com.course_work.View.Scenes.LeftVBox;
+import com.course_work.View.Scenes.RightVBox;
 import com.course_work.View.Scenes.WindowAlert;
 import com.course_work.model.animals.Animal;
 import javafx.scene.Scene;
@@ -16,7 +17,8 @@ public class GameHandler {
 
     public GameHandler(TextField text, Animal animal, Label answerLabel, Label tryingLabel, Label tryingAnimalLabel,
                        Stage stage, Scene previousScene, AtomicInteger tryingAnimal, AtomicInteger trying,
-                       DifficultSettings difficultSettings, LeftVBox leftVBoxGetter, AtomicReference<VBox> leftVBox,  BorderPaneBuilder borderPaneBuilder) {
+                       DifficultSettings difficultSettings, LeftVBox leftVBoxGetter, AtomicReference<VBox> leftVBox,
+                       BorderPaneBuilder borderPaneBuilder, RightVBox rightVBoxGetter, AtomicReference<VBox> rightVBox) {
 
 
         AnalysisInputText ALIT = new AnalysisInputText(text.getText().strip() ,animal ,answerLabel , tryingLabel, tryingAnimalLabel);
@@ -34,6 +36,7 @@ public class GameHandler {
         if (ans == 3) {
             trying.set(ALIT.addTrying(trying.get()));
             ALIT.checkInputTextByQuestion();
+            borderPaneBuilder.REinit(text, rightVBox, rightVBoxGetter);
         }
 
         difficultSettings.init(trying.get(), tryingAnimal.get(), answerLabel, stage, previousScene);

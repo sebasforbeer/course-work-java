@@ -13,8 +13,8 @@ public record DifficultSettings(int difficult) {
 
             //легкая сложность
             case 1 -> {
-                int tryingEasy = 7;
-                int tryingAnimalEasy = 5;
+                int tryingEasy = 8;
+                int tryingAnimalEasy = 6;
 
                 returning[0] = tryingEasy;
                 returning[1] = tryingAnimalEasy;
@@ -23,8 +23,8 @@ public record DifficultSettings(int difficult) {
 
             //нормальная сложность
             case 2 -> {
-                int tryingNormal = 5;
-                int tryingAnimalNormal = 3;
+                int tryingNormal = 6;
+                int tryingAnimalNormal = 4;
 
                 returning[0] = tryingNormal;
                 returning[1] = tryingAnimalNormal;
@@ -33,8 +33,8 @@ public record DifficultSettings(int difficult) {
 
             //сложная сложность
             case 3 -> {
-                int tryingHard = 3;
-                int tryingAnimalHard = 2;
+                int tryingHard = 4;
+                int tryingAnimalHard = 3;
 
                 returning[0] = tryingHard;
                 returning[1] = tryingAnimalHard;
@@ -56,6 +56,10 @@ public record DifficultSettings(int difficult) {
             if (tryingAnimalInput >= tryingAnimal) {
                 new WindowAlert("поражение", "ты не справился", 1);
                 currentStage.setScene(menuScene);
+            }
+
+            if (tryingAnimalInput == tryingAnimal-1) {
+                outputLabel.setText("Последняя попытка угадать жceивотное");
             }
 
 

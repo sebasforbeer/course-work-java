@@ -61,12 +61,12 @@ public class Hedgehog extends Animal{
 
     @Override
     public boolean isWildAnimal() {
-        return super.isWildAnimal();
+        return true;
     }
 
     @Override
     public boolean isPet() {
-        return super.isPet();
+        return true;
     }
 
     @Override
