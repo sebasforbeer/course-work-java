@@ -1,14 +1,13 @@
-package com.course_work.model.animals;
+package com.course_work.model;
 
 import com.course_work.View.Scenes.WindowAlert;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class DifficultSettings {
+public record DifficultSettings(int difficult) {
 
-
-    private int[] difficulties(int difficult) {
+    private int[] difficulties() {
         int[] returning = new int[2];
         switch (difficult) {
 
@@ -46,8 +45,8 @@ public class DifficultSettings {
     }
 
 
-    public void init(int currentDifficult, int tryingInput, int tryingAnimalInput, Label outputLabel, Stage currentStage, Scene menuScene) {
-        int[] difficult = difficulties(currentDifficult);
+    public void init(int tryingInput, int tryingAnimalInput, Label outputLabel, Stage currentStage, Scene menuScene) {
+        int[] difficult = difficulties();
 
         if (difficult != null) {
             int trying = difficult[0];
@@ -73,6 +72,27 @@ public class DifficultSettings {
         }
     }
 
-
-
+    public void welcomeWindow() {
+        if (difficult == 1) {
+            new WindowAlert("сложности", """
+                    ты выбрал легкую сложность
+                    у тебя есть 7 вопросов
+                    и 5 попыток отгадать животное
+                    """, 0);
+        }
+        if (difficult == 2) {
+            new WindowAlert("сложности", """
+                    ты выбрал нормальную сложность
+                    у тебя есть 5 вопросов
+                    и 3 попытки отгадать животное
+                    """, 0);
+        }
+        if (difficult == 3) {
+            new WindowAlert("сложности", """
+                    ты выбрал сложную сложность
+                    у тебя есть 3 вопроса
+                    и 2 попытки отгадать животное
+                    """, 0);
+        }
+    }
 }

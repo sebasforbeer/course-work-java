@@ -10,8 +10,6 @@ module com.course_work {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
-    opens com.course_work to javafx.fxml;
-    exports com.course_work;
     exports com.course_work.View;
     opens com.course_work.View to javafx.fxml;
     exports com.course_work.View.Scenes;
