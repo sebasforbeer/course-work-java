@@ -14,10 +14,6 @@ public class BorderPaneBuilder {
 
     private BorderPane borderPane;
 
-    private VBox centerVBox;
-    private VBox rightVBox;
-    private VBox leftVBox;
-
     public void init(VBox centerVBox, VBox leftVBox, VBox rightVBox, Node[] menuObjects) {
         BorderPane borderPane = new BorderPane();
 
@@ -31,10 +27,6 @@ public class BorderPaneBuilder {
         leftVBox.setPadding(new Insets(0, 0 ,0 , 50));
 
 
-        this.centerVBox = centerVBox;
-        this.rightVBox = rightVBox;
-        this.leftVBox = leftVBox;
-
         borderPane.setCenter(centerVBox);
         borderPane.setLeft(leftVBox);
         borderPane.setRight(rightVBox);
@@ -42,12 +34,12 @@ public class BorderPaneBuilder {
         this.borderPane = borderPane;
     }
 
-    public void REinit(BorderPane borderPane ,TextField input, AtomicReference<VBox> leftVBox, LeftVBox leftVBoxGetter) {
+    public void REinit(TextField input, AtomicReference<VBox> leftVBox, LeftVBox leftVBoxGetter) {
         leftVBox.set(leftVBoxGetter.getNewLeftBox(input));
         leftVBox.get().setPadding(new Insets(0, 0 ,0 , 50));
 
         borderPane.setLeft(leftVBox.get());
-        this.borderPane = borderPane;
+
     }
 
     public BorderPane getBorderPane() {

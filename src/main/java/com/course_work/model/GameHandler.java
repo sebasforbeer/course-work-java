@@ -17,11 +17,8 @@ public class GameHandler {
 
     public GameHandler(TextField text, Animal animal, Label answerLabel, Label tryingLabel, Label tryingAnimalLabel,
                        Stage stage, Scene previousScene, AtomicInteger tryingAnimal, AtomicInteger trying,
-                       DifficultSettings difficultSettings, BorderPane borderPane, LeftVBox leftVBoxGetter, AtomicReference<VBox> leftVBox) {
+                       DifficultSettings difficultSettings, LeftVBox leftVBoxGetter, AtomicReference<VBox> leftVBox,  BorderPaneBuilder borderPaneBuilder) {
 
-
-
-        BorderPaneBuilder borderPaneBuilder = new BorderPaneBuilder();
 
         AnalysisInputText ALIT = new AnalysisInputText(text.getText().strip() ,animal ,answerLabel , tryingLabel, tryingAnimalLabel);
 
@@ -33,8 +30,7 @@ public class GameHandler {
 
         if (ans == 2) {
             tryingAnimal.set(ALIT.addTryingAnimal(tryingAnimal.get()));
-
-            borderPaneBuilder.REinit(borderPane, text, leftVBox, leftVBoxGetter);
+            borderPaneBuilder.REinit(text, leftVBox, leftVBoxGetter);
         }
         if (ans == 3) {
             trying.set(ALIT.addTrying(trying.get()));

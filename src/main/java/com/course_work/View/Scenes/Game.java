@@ -5,7 +5,6 @@ import com.course_work.model.CreateAnimal;
 import com.course_work.model.animals.Animal;
 import com.course_work.model.DifficultSettings;
 import com.course_work.model.GameHandler;
-import com.course_work.model.animals.Cat;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -41,8 +40,7 @@ public class Game {
 
 
         //тут висит весь интерфейс
-        BorderPane borderPane = new BorderPane();
-        BorderPane finalBorderPane = borderPane;
+        AtomicReference<BorderPane> borderPane = new AtomicReference<>(new BorderPane());
 
         //классы оброботчики
         DifficultSettings difficultSettings = new DifficultSettings(difficult);
@@ -50,7 +48,7 @@ public class Game {
 
         Animal randomAnimal = new CreateAnimal().init();
 
-        //переменные ввиде AtomicInteger(интересно было посмотреть)
+        //переменные в виде AtomicInteger
         AtomicInteger trying = new AtomicInteger(1);
         AtomicInteger tryingAnimal = new AtomicInteger(1);
 
@@ -68,14 +66,20 @@ public class Game {
         difficultSettings.welcomeWindow();
 
         //тут идет обработка вводимого текста
-        input.setOnAction(e -> new GameHandler(input, randomAnimal, answerLabel, tryingLabel, tryingAnimalLabel,
-                stage, previousScene, tryingAnimal, trying, difficultSettings, finalBorderPane, leftVBoxGetter, leftVBox));
+        input.setOnAction(e -> {
+            new GameHandler(input, randomAnimal, answerLabel, tryingLabel, tryingAnimalLabel,
+                    stage, previousScene, tryingAnimal, trying, difficultSettings, leftVBoxGetter, leftVBox, borderPaneBuilder);
+            borderPane.set(borderPaneBuilder.getBorderPane());
+        });
 
 
         //тоже самое что и выше но по кнопке
         Button okButton = new Button("ок");
-        okButton.setOnAction(e ->new GameHandler(input, randomAnimal, answerLabel, tryingLabel, tryingAnimalLabel,
-                stage, previousScene, tryingAnimal, trying, difficultSettings, finalBorderPane, leftVBoxGetter, leftVBox));
+        okButton.setOnAction(e -> {
+            new GameHandler(input, randomAnimal, answerLabel, tryingLabel, tryingAnimalLabel,
+                    stage, previousScene, tryingAnimal, trying, difficultSettings, leftVBoxGetter, leftVBox, borderPaneBuilder);
+            borderPane.set(borderPaneBuilder.getBorderPane());
+        });
 
         //выход
         Button exitButton = new Button("Выход");
@@ -88,9 +92,9 @@ public class Game {
 
         //вся сцена
         borderPaneBuilder.init(vBox, leftVBox.get(), rightVBox, menuObjects);
-        borderPane = borderPaneBuilder.getBorderPane();
+        borderPane.set(borderPaneBuilder.getBorderPane());
 
-        scene = new Scene(borderPane,1280,720);
+        scene = new Scene(borderPane.get(),1280,720);
         stage.setScene(scene);
         stage.setTitle("Игра");
     }
