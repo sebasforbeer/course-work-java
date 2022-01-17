@@ -16,4 +16,5 @@ module com.course_work {
     opens com.course_work.View.Scenes to javafx.fxml;
     exports com.course_work.model;
     opens com.course_work.model to javafx.fxml;
+
 }
