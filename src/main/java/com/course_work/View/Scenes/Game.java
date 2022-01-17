@@ -3,6 +3,7 @@ package com.course_work.View.Scenes;
 import com.course_work.model.AnalysisInputText;
 import com.course_work.model.CreateAnimal;
 import com.course_work.model.animals.Animal;
+import com.course_work.model.animals.DifficultSettings;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -23,14 +24,14 @@ public class Game {
         return scene;
     }
 
-    public Game(Stage stage, Scene PreviousScene, int difficult) {
+    public Game(Stage stage, Scene previousScene, int difficult) {
         VBox vBox = new VBox(30);
 
         BorderPane borderPane = new BorderPane();
 
 
         Button exitButton = new Button("Выход");
-        exitButton.setOnAction(e -> stage.setScene(PreviousScene));
+        exitButton.setOnAction(e -> stage.setScene(previousScene));
 
         TextField input = new TextField("Пиши тут");
         input.setPrefWidth(50);
@@ -81,12 +82,14 @@ public class Game {
         }
 
 
+        DifficultSettings difficultSettings = new DifficultSettings();
+
         input.setOnAction(e ->{
             AnalysisInputText ALIT = new AnalysisInputText(input.getText().strip(),randomAnimal,label,tryingLabel, tryingAnimalLabel);
             int ans = ALIT.checkInputTextByAnimal();
             if (ans == 1) {
                 new WindowAlert("победа!", "ты красавчик", 1 , randomAnimal.getImage());
-                stage.setScene(PreviousScene);
+                stage.setScene(previousScene);
             }
             if (ans == 2) {
                 tryingAnimal.set(ALIT.addTryingAnimal(tryingAnimal.get()));
@@ -98,49 +101,7 @@ public class Game {
                 ALIT.checkInputTextByQuestion();
             }
 
-            if (difficult == 1) {
-                if (trying.get() >= tryingEasy && tryingAnimal.get() >= tryingAnimalEasy || tryingAnimal.get() >= tryingAnimalEasy) {
-                    new WindowAlert("поражение", "ты не справился", 1);
-                    stage.setScene(PreviousScene);
-                }
-                if (trying.get() >= tryingEasy) {
-                    label.setText("теперь только угадивать животных!");
-                    if (trying.get() >= tryingEasy+1) {
-                        label.setText("зря");
-                        new WindowAlert("поражение", "ты не справился, еще и правила игнорируешь", 1);
-                        stage.setScene(PreviousScene);
-                    }
-                }
-            }
-            if (difficult == 2) {
-                if (trying.get() >= tryingNormal && tryingAnimal.get() >= tryingAnimalNormal || tryingAnimal.get() >= tryingAnimalNormal) {
-                    new WindowAlert("поражение", "ты не справился", 1);
-                    stage.setScene(PreviousScene);
-                }
-                if (trying.get() >= tryingNormal) {
-                    label.setText("теперь только угадивать животных!");
-                    if (trying.get() >= tryingNormal+1) {
-                        label.setText("зря");
-                        new WindowAlert("поражение", "ты не справился, еще и правила игнорируешь", 1);
-                        stage.setScene(PreviousScene);
-                    }
-                }
-            }
-            if (difficult == 3) {
-                if (trying.get() >= tryingHard && tryingAnimal.get() >= tryingAnimalHard || tryingAnimal.get() >= tryingAnimalHard) {
-                    new WindowAlert("поражение", "ты не справился", 1);
-                    stage.setScene(PreviousScene);
-                }
-                if (trying.get() >= tryingHard) {
-                    label.setText("теперь только угадивать животных!");
-                    if (trying.get() >= tryingHard+1) {
-                        label.setText("зря");
-                        new WindowAlert("поражение", "ты не справился, еще и правила игнорируешь", 1);
-                        stage.setScene(PreviousScene);
-                    }
-                }
-
-            }
+            difficultSettings.init(difficult, trying.get(), tryingAnimal.get(), label, stage, previousScene);
 
             input.clear();
             System.out.println(randomAnimal.getName());
