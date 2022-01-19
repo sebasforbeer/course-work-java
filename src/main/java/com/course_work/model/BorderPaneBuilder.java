@@ -40,12 +40,11 @@ public class BorderPaneBuilder {
         leftVBox.get().setPadding(new Insets(0, 0 ,0 , 50));
 
         borderPane.setLeft(leftVBox.get());
-
     }
 
     public void REinit(TextField input, AtomicReference<VBox> rightVBox, RightVBox rightVBoxGetter) {
         rightVBox.set(rightVBoxGetter.getNewVBox(input));
-        rightVBox.get().setPadding(new Insets(0, 45 ,0 , 0));
+        rightVBox.get().setPadding(new Insets(0, 45  ,0 , 0));
 
         borderPane.setRight(rightVBox.get());
 

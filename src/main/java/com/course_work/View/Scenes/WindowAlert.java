@@ -12,8 +12,6 @@ import javafx.stage.Stage;
 
 public class WindowAlert{
 
-
-
     public WindowAlert(String titleName, String text, int logic){
 
         Label tf = new Label(text);

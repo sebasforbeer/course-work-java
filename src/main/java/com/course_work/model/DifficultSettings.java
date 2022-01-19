@@ -59,7 +59,7 @@ public record DifficultSettings(int difficult) {
             }
 
             if (tryingAnimalInput == tryingAnimal-1) {
-                outputLabel.setText("Последняя попытка угадать жceивотное");
+                outputLabel.setText("Последняя попытка угадать животное");
             }
 
 

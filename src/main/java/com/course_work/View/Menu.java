@@ -35,8 +35,6 @@ public class Menu extends Application {
         startGameButton.setOnAction(e -> {
             GameDifficult gd = new GameDifficult(stage,scene);
             stage.setScene(gd.getScene());
-
-
         });
 
         howToPlayButton.setOnAction(e -> {

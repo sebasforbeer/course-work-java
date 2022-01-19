@@ -59,12 +59,9 @@ public class RightVBox {
 
             if (usedQuestionsFalse.contains(question)) {
                 button.setStyle("-fx-background-color: #ff0000; ");
-                System.out.println("false"+usedQuestionsFalse);
             }
             if (usedQuestionsTrue.contains(question)) {
                 button.setStyle("-fx-background-color: #66f21f; ");
-                System.out.println("true"+usedQuestionsTrue);
-
             }
 
 
